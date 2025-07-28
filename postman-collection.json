@@ -1,0 +1,139 @@
+{
+  "info": {
+    "name": "Crypto Crash Game API",
+    "description": "API collection for testing the Crypto Crash game backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Get Game History",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/game/history",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "game", "history"]
+        }
+      }
+    },
+    {
+      "name": "Get Current Round",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/game/current",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "game", "current"]
+        }
+      }
+    },
+    {
+      "name": "Place Bet",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"playerId\": \"player1\",\n  \"usdAmount\": 50,\n  \"currency\": \"BTC\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/game/bet",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "game", "bet"]
+        }
+      }
+    },
+    {
+      "name": "Verify Round",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"roundId\": \"round_1234567890\",\n  \"seed\": \"sample_seed_here\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/game/verify",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "game", "verify"]
+        }
+      }
+    },
+    {
+      "name": "Get Player Wallet",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/wallet/player1",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "wallet", "player1"]
+        }
+      }
+    },
+    {
+      "name": "Get Transaction History",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/wallet/player1/transactions",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "wallet", "player1", "transactions"]
+        }
+      }
+    },
+    {
+      "name": "Deposit Funds",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 100, \"currency\": \"BTC\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/wallet/player1/deposit",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "wallet", "player1", "deposit"]
+        }
+      }
+    }
+  ]
+}
