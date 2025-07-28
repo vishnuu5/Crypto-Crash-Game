@@ -92,7 +92,7 @@ cp .env.example .env
 
 # PORT=3000
 
-# MONGODB_URI=mongodb://localhost:27017/crypto-crash
+# MONGODB_URI=
 
 # FRONTEND_URL=http://localhost:5173
 
